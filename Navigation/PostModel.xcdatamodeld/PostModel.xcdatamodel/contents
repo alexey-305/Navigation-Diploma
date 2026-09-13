@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24901" systemVersion="25F80" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="FavoritePost" representedClassName="FavoritePost" syncable="YES" codeGenerationType="class">
+        <attribute name="authorName" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="likesCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="postText" optional="YES" attributeType="String"/>
+        <attribute name="titleText" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CachedQuote" representedClassName="CachedQuote" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="fetchedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+    </entity>
+</model>

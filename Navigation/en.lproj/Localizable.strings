@@ -1,0 +1,68 @@
+/*
+  Localizable.strings (English)
+  Navigation
+*/
+
+// MARK: - Common
+"common.ok" = "OK";
+"common.cancel" = "Cancel";
+"common.error" = "Error";
+"common.delete" = "Delete";
+
+// MARK: - Tab Bar
+"tabbar.more" = "More";
+"tabbar.random" = "Random";
+"tabbar.all_quotes" = "All Quotes";
+"tabbar.categories" = "Categories";
+"tabbar.feed" = "Feed";
+"tabbar.profile" = "Profile";
+"tabbar.favorites" = "Favorites";
+"tabbar.map" = "Map";
+
+// MARK: - Random Quote
+"random_quote.title" = "Random Quote";
+"random_quote.hint" = "Tap the button to load a quote";
+"random_quote.button.load" = "Load Quote";
+"random_quote.button.loading" = "Loading...";
+"random_quote.category.none" = "No category";
+"random_quote.error.format" = "Error: %@";
+"random_quote.offline_cache" = "No connection — showing the last loaded quote";
+
+// MARK: - All Quotes
+"all_quotes.title" = "All Quotes";
+
+// MARK: - Categories
+"categories.title" = "Categories";
+
+// MARK: - Feed
+"feed.title" = "Feed";
+"feed.alert.already_favorite.title" = "Already in Favorites";
+"feed.alert.already_favorite.message" = "This post is already saved";
+"feed.alert.added.title" = "Added to Favorites ❤️";
+"feed.alert.added.message" = "Post saved";
+"feed.cell.subtitle_format" = "✍️ %@  %@  👁️ %d";
+
+// MARK: - Favorites
+"favorites.title" = "Favorites";
+"favorites.filter.title" = "Filter by Author";
+"favorites.filter.message" = "Enter an author name to search";
+"favorites.filter.placeholder" = "Author name";
+"favorites.filter.apply" = "Apply";
+"favorites.filter.error_empty" = "Enter an author name";
+"favorites.filter.applied_format" = "Filter: %@";
+"favorites.filter.cleared.title" = "Filter Cleared";
+"favorites.filter.cleared.message" = "Showing all posts";
+"favorites.post.untitled" = "Untitled";
+"favorites.post.unknown_author" = "Unknown";
+"favorites.cell.subtitle_format" = "✍️ %@  %@";
+
+// MARK: - Map
+"map.title" = "Map";
+"map.button.route" = "Build Route";
+"map.button.clear" = "Clear Pins";
+"map.hint" = "Long press on the map to drop a pin";
+"map.pin.format" = "Pin %d";
+"map.alert.no_location" = "Couldn't determine your location";
+"map.alert.no_pin" = "First drop a pin on the map (long press)";
+"map.alert.route_failed" = "Couldn't build a route";
+"map.alert.location_denied" = "Location access is denied. Enable it in Settings to see your location on the map.";

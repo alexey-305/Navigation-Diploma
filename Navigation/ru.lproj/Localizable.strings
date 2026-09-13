@@ -1,0 +1,68 @@
+/*
+  Localizable.strings (Russian)
+  Navigation
+*/
+
+// MARK: - Common
+"common.ok" = "OK";
+"common.cancel" = "Отмена";
+"common.error" = "Ошибка";
+"common.delete" = "Удалить";
+
+// MARK: - Tab Bar
+"tabbar.more" = "Ещё";
+"tabbar.random" = "Случайная";
+"tabbar.all_quotes" = "Все цитаты";
+"tabbar.categories" = "Категории";
+"tabbar.feed" = "Лента";
+"tabbar.profile" = "Профиль";
+"tabbar.favorites" = "Избранное";
+"tabbar.map" = "Карта";
+
+// MARK: - Random Quote
+"random_quote.title" = "Случайная цитата";
+"random_quote.hint" = "Нажмите кнопку, чтобы загрузить цитату";
+"random_quote.button.load" = "Загрузить цитату";
+"random_quote.button.loading" = "Загрузка...";
+"random_quote.category.none" = "Без категории";
+"random_quote.error.format" = "Ошибка: %@";
+"random_quote.offline_cache" = "Нет сети — показана последняя загруженная цитата";
+
+// MARK: - All Quotes
+"all_quotes.title" = "Все цитаты";
+
+// MARK: - Categories
+"categories.title" = "Категории";
+
+// MARK: - Feed
+"feed.title" = "Лента";
+"feed.alert.already_favorite.title" = "Уже в избранном";
+"feed.alert.already_favorite.message" = "Пост уже сохранён";
+"feed.alert.added.title" = "Добавлено в избранное ❤️";
+"feed.alert.added.message" = "Пост сохранён";
+"feed.cell.subtitle_format" = "✍️ %@  %@  👁️ %d";
+
+// MARK: - Favorites
+"favorites.title" = "Избранное";
+"favorites.filter.title" = "Фильтр по автору";
+"favorites.filter.message" = "Введите имя автора для поиска";
+"favorites.filter.placeholder" = "Имя автора";
+"favorites.filter.apply" = "Применить";
+"favorites.filter.error_empty" = "Введите имя автора";
+"favorites.filter.applied_format" = "Фильтр: %@";
+"favorites.filter.cleared.title" = "Фильтр снят";
+"favorites.filter.cleared.message" = "Показаны все посты";
+"favorites.post.untitled" = "Без названия";
+"favorites.post.unknown_author" = "Неизвестный";
+"favorites.cell.subtitle_format" = "✍️ %@  %@";
+
+// MARK: - Map
+"map.title" = "Карта";
+"map.button.route" = "Построить маршрут";
+"map.button.clear" = "Очистить точки";
+"map.hint" = "Долгое нажатие на карте — поставить точку";
+"map.pin.format" = "Точка %d";
+"map.alert.no_location" = "Не удалось определить местоположение пользователя";
+"map.alert.no_pin" = "Сначала поставьте точку на карте (долгое нажатие)";
+"map.alert.route_failed" = "Не удалось построить маршрут";
+"map.alert.location_denied" = "Доступ к геолокации запрещён. Включите его в настройках, чтобы видеть своё местоположение на карте.";
