@@ -32,12 +32,23 @@ class FeedViewController: UIViewController {
         return indicator
     }()
     
+    private let storiesBarView: StoriesBarView = {
+        let view = StoriesBarView(frame: CGRect(x: 0, y: 0, width: 0, height: 108))
+        return view
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColors.background
         title = "feed.title".localized
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(composeButtonTapped)
+        )
         
         setupTableView()        // сначала настраиваем таблицу и dataSource
         setupDoubleTapGesture() // потом жест
@@ -60,6 +71,12 @@ class FeedViewController: UIViewController {
         ])
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.tableHeaderView = storiesBarView
+        storiesBarView.onStorySelected = { [weak self] story in
+            let viewer = StoryViewerViewController(story: story)
+            self?.present(viewer, animated: true)
+        }
     }
     
     private func setupDoubleTapGesture() {
@@ -82,6 +99,7 @@ class FeedViewController: UIViewController {
             loadingIndicator.startAnimating()
         case .loaded:
             loadingIndicator.stopAnimating()
+            storiesBarView.update(with: viewModel.posts)
             tableView.reloadData()
         case .failed(let message):
             loadingIndicator.stopAnimating()
@@ -99,6 +117,19 @@ class FeedViewController: UIViewController {
         let point = gesture.location(in: tableView)
         guard let indexPath = tableView.indexPathForRow(at: point) else { return }
         viewModel.addToFavorites(at: indexPath.row)
+    }
+    
+    @objc private func likeButtonTapped(_ sender: UIButton) {
+        viewModel.toggleLike(at: sender.tag)
+    }
+    
+    @objc private func composeButtonTapped() {
+        let composeVC = ComposePostViewController()
+        composeVC.onPostCreated = { [weak self] in
+            self?.viewModel.loadPosts()
+        }
+        let nav = UINavigationController(rootViewController: composeVC)
+        present(nav, animated: true)
     }
     
     // MARK: - Helpers
@@ -137,9 +168,16 @@ extension FeedViewController: UITableViewDataSource {
         cell?.detailTextLabel?.textColor = AppColors.secondaryText
         
         // Пост из Realm — картинка уже под рукой (JPEG-данные или имя ассета уже разрешены в PostsService)
-        // локальный/drag&drop пост — картинка уже под рукой в post.image
-        // Пост из Realm — картинка уже под рукой (JPEG-данные или имя ассета уже разрешены в PostsService)
         cell?.imageView?.image = post.image
+        
+        let likeButton = UIButton(type: .system)
+        let isLiked = viewModel.isPostLiked(at: indexPath.row)
+        likeButton.setImage(UIImage(systemName: isLiked ? "heart.fill" : "heart"), for: .normal)
+        likeButton.tintColor = isLiked ? .systemRed : AppColors.secondaryText
+        likeButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        likeButton.tag = indexPath.row
+        likeButton.addTarget(self, action: #selector(likeButtonTapped(_:)), for: .touchUpInside)
+        cell?.accessoryView = likeButton
         
         return cell ?? UITableViewCell()
     }

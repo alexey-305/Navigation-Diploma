@@ -3,6 +3,7 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     var onStatusChanged: ((String) -> Void)?
+    var onAvatarTapped: (() -> Void)?
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
@@ -11,6 +12,7 @@ class ProfileHeaderView: UIView {
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = AppColors.avatarBorder.cgColor
         imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -109,6 +111,17 @@ class ProfileHeaderView: UIView {
     
     private func setupActions() {
         setStatusButton.addTarget(self, action: #selector(setStatusButtonTapped), for: .touchUpInside)
+        let avatarTap = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+        avatarImageView.addGestureRecognizer(avatarTap)
+    }
+    
+    @objc private func avatarTapped() {
+        onAvatarTapped?()
+    }
+    
+    /// Вызывается снаружи после того, как пользователь выбрал новое фото
+    func updateAvatar(_ image: UIImage) {
+        avatarImageView.image = image
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

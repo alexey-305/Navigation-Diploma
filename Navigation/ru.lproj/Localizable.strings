@@ -42,6 +42,18 @@
 "feed.alert.added.message" = "Пост сохранён";
 "feed.cell.subtitle_format" = "✍️ %@  %@  👁️ %d";
 
+// MARK: - Compose Post
+"compose.title" = "Новый пост";
+"compose.placeholder" = "О чём хотите рассказать?";
+"compose.pick_photo" = "Выбрать фото";
+"compose.post" = "Опубликовать";
+"compose.error.empty_text" = "Напишите что-нибудь перед публикацией";
+"compose.default_author" = "Аноним";
+
+// MARK: - Profile
+"profile.guest" = "Гость";
+"profile.default_status" = "Waiting for something...";
+
 // MARK: - Favorites
 "favorites.title" = "Избранное";
 "favorites.filter.title" = "Фильтр по автору";
