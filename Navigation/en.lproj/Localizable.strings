@@ -42,6 +42,18 @@
 "feed.alert.added.message" = "Post saved";
 "feed.cell.subtitle_format" = "✍️ %@  %@  👁️ %d";
 
+// MARK: - Compose Post
+"compose.title" = "New Post";
+"compose.placeholder" = "What's on your mind?";
+"compose.pick_photo" = "Choose Photo";
+"compose.post" = "Post";
+"compose.error.empty_text" = "Write something before posting";
+"compose.default_author" = "Anonymous";
+
+// MARK: - Profile
+"profile.guest" = "Guest";
+"profile.default_status" = "Waiting for something...";
+
 // MARK: - Favorites
 "favorites.title" = "Favorites";
 "favorites.filter.title" = "Filter by Author";

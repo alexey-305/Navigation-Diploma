@@ -28,24 +28,49 @@ final class PostsServiceMock: PostsServiceProtocol {
     func addPost(author: String, description: String, image: UIImage?, completion: @escaping (Result<Void, Error>) -> Void) {
         completion(.success(()))
     }
+    
+    private(set) var likedPostIDs: [String] = []
+    
+    func likePost(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        likedPostIDs.append(id)
+        completion(.success(()))
+    }
+}
+
+final class LikesStoringMock: LikesStoring {
+    private var liked: Set<String> = []
+    
+    func isLiked(postId: String) -> Bool {
+        liked.contains(postId)
+    }
+    
+    @discardableResult
+    func markLiked(postId: String) -> Bool {
+        guard !liked.contains(postId) else { return false }
+        liked.insert(postId)
+        return true
+    }
 }
 
 final class FeedViewModelTests: XCTestCase {
     
     private var favoritesStoreMock: FavoritesStoringMock!
     private var postsServiceMock: PostsServiceMock!
+    private var likesStoreMock: LikesStoringMock!
     private var sut: FeedViewModel!
     
     override func setUp() {
         super.setUp()
         favoritesStoreMock = FavoritesStoringMock()
         postsServiceMock = PostsServiceMock()
-        sut = FeedViewModel(favoritesStore: favoritesStoreMock, postsService: postsServiceMock)
+        likesStoreMock = LikesStoringMock()
+        sut = FeedViewModel(favoritesStore: favoritesStoreMock, postsService: postsServiceMock, likesStore: likesStoreMock)
     }
     
     override func tearDown() {
         favoritesStoreMock = nil
         postsServiceMock = nil
+        likesStoreMock = nil
         sut = nil
         super.tearDown()
     }
@@ -126,5 +151,34 @@ final class FeedViewModelTests: XCTestCase {
         // then
         XCTAssertTrue(favoritesStoreMock.savedPostIDs.isEmpty)
         XCTAssertNil(receivedState)
+    }
+    
+    func test_toggleLike_incrementsLikesAndCallsService() {
+        // given
+        sut.loadPosts()
+        let originalLikes = sut.posts[0].likes
+        let postId = sut.posts[0].id
+        
+        // when
+        sut.toggleLike(at: 0)
+        
+        // then
+        XCTAssertEqual(sut.posts[0].likes, originalLikes + 1)
+        XCTAssertEqual(postsServiceMock.likedPostIDs, [postId])
+        XCTAssertTrue(sut.isPostLiked(at: 0))
+    }
+    
+    func test_toggleLike_calledTwice_onlyLikesOnce() {
+        // given
+        sut.loadPosts()
+        let originalLikes = sut.posts[0].likes
+        
+        // when
+        sut.toggleLike(at: 0)
+        sut.toggleLike(at: 0)
+        
+        // then
+        XCTAssertEqual(sut.posts[0].likes, originalLikes + 1, "Повторный тап не должен увеличивать счётчик ещё раз")
+        XCTAssertEqual(postsServiceMock.likedPostIDs.count, 1)
     }
 }

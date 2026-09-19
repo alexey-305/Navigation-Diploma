@@ -1,4 +1,5 @@
 import UIKit
+import PhotosUI
 import FirebaseAuth
 
 final class ProfileViewController: UIViewController {
@@ -13,6 +14,7 @@ final class ProfileViewController: UIViewController {
     
     private let postsService: PostsServiceProtocol
     private var posts: [Post] = []
+    private weak var currentHeaderView: ProfileHeaderView?
     
     init(postsService: PostsServiceProtocol = AppDependencyContainer.shared.postsService) {
         self.postsService = postsService
@@ -23,13 +25,27 @@ final class ProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Показываем реального авторизованного пользователя вместо тестового
+    private var currentUID: String {
+        Auth.auth().currentUser?.uid ?? ""
+    }
+    
+    // Реальный авторизованный пользователь + персистентный статус/аватар из Realm,
+    // привязанные к его uid (а не общие на всех, как было раньше)
     private var currentUser: User {
-        User(
-            login: Auth.auth().currentUser?.uid ?? "",
-            fullName: Auth.auth().currentUser?.email ?? "Гость",
-            avatar: UIImage(named: "avatar") ?? UIImage(),
-            status: "Waiting for something..."
+        let savedProfile = RealmService.shared.getUserProfile(uid: currentUID)
+        
+        let avatar: UIImage
+        if let data = savedProfile?.avatarData, let image = UIImage(data: data) {
+            avatar = image
+        } else {
+            avatar = UIImage(named: "avatar") ?? UIImage()
+        }
+        
+        return User(
+            login: currentUID,
+            fullName: Auth.auth().currentUser?.email ?? "profile.guest".localized,
+            avatar: avatar,
+            status: savedProfile?.status ?? "profile.default_status".localized
         )
     }
     
@@ -94,6 +110,15 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
+    private func presentAvatarPicker() {
+        var config = PHPickerConfiguration()
+        config.filter = .images
+        config.selectionLimit = 1
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
     // MARK: - Задача 1, пункт 1: включаем drag & drop у таблицы
     private func setupDragAndDrop() {
         tableView.dragInteractionEnabled = true
@@ -126,6 +151,14 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = ProfileHeaderView()
         header.configure(with: currentUser)
+        header.onStatusChanged = { [weak self] newStatus in
+            guard let self = self else { return }
+            RealmService.shared.saveUserProfile(uid: self.currentUID, status: newStatus, avatarData: nil)
+        }
+        header.onAvatarTapped = { [weak self] in
+            self?.presentAvatarPicker()
+        }
+        currentHeaderView = header
         return header
     }
     
@@ -143,7 +176,27 @@ extension ProfileViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - UITableViewDragDelegate (Задача 1, пункт 3)
+// MARK: - PHPickerViewControllerDelegate (выбор аватара)
+extension ProfileViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else { return }
+        
+        provider.loadObject(ofClass: UIImage.self) { [weak self] object, _ in
+            DispatchQueue.main.async {
+                guard let self = self, let image = object as? UIImage else { return }
+                
+                RealmService.shared.saveUserProfile(
+                    uid: self.currentUID,
+                    status: nil,
+                    avatarData: image.jpegData(compressionQuality: 0.8)
+                )
+                self.currentHeaderView?.updateAvatar(image)
+            }
+        }
+    }
+}
 extension ProfileViewController: UITableViewDragDelegate {
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let post = posts[indexPath.row]

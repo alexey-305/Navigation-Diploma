@@ -106,6 +106,35 @@ class RealmService {
         }
     }
     
+    // MARK: - Профиль пользователя (статус + аватар, привязаны к uid)
+    
+    func saveUserProfile(uid: String, status: String?, avatarData: Data?) {
+        guard let realm = realm else { return }
+        
+        do {
+            try realm.write {
+                let profile = realm.object(ofType: UserProfileObject.self, forPrimaryKey: uid) ?? UserProfileObject()
+                if profile.realm == nil {
+                    profile.uid = uid
+                    realm.add(profile)
+                }
+                if let status = status {
+                    profile.status = status
+                }
+                if let avatarData = avatarData {
+                    profile.avatarData = avatarData
+                }
+            }
+            print("✅ Профиль сохранён (зашифровано)")
+        } catch {
+            print("❌ Ошибка сохранения профиля: \(error)")
+        }
+    }
+    
+    func getUserProfile(uid: String) -> UserProfileObject? {
+        realm?.object(ofType: UserProfileObject.self, forPrimaryKey: uid)
+    }
+    
     // MARK: - Posts (CREATE)
     
     /// Заполняет базу стартовым набором постов один раз, если она ещё пустая
@@ -161,6 +190,24 @@ class RealmService {
             print("✅ Пост сохранён (зашифровано)")
         } catch {
             print("❌ Ошибка сохранения поста: \(error)")
+        }
+    }
+    
+    // MARK: - Posts (UPDATE)
+    
+    /// Увеличивает счётчик лайков поста на 1. Кто уже лайкнул — решает
+    /// вызывающая сторона (FeedViewModel хранит id лайкнутых постов локально),
+    /// здесь только сама операция изменения счётчика.
+    func incrementLikes(postId: String) {
+        guard let realm = realm else { return }
+        guard let post = realm.object(ofType: PostObject.self, forPrimaryKey: postId) else { return }
+        
+        do {
+            try realm.write {
+                post.likes += 1
+            }
+        } catch {
+            print("❌ Ошибка увеличения лайков: \(error)")
         }
     }
     

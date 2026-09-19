@@ -5,6 +5,7 @@ import UIKit
 protocol PostsServiceProtocol {
     func fetchPosts(completion: @escaping (Result<[Post], Error>) -> Void)
     func addPost(author: String, description: String, image: UIImage?, completion: @escaping (Result<Void, Error>) -> Void)
+    func likePost(id: String, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 /// Локальное хранилище постов на базе зашифрованного Realm (см. RealmService).
@@ -30,6 +31,11 @@ final class PostsService: PostsServiceProtocol {
             imageAssetName: nil,
             imageData: image?.jpegData(compressionQuality: 0.8)
         )
+        completion(.success(()))
+    }
+    
+    func likePost(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        RealmService.shared.incrementLikes(postId: id)
         completion(.success(()))
     }
 }

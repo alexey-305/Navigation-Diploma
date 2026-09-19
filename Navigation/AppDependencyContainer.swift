@@ -26,11 +26,12 @@ final class AppDependencyContainer {
     lazy var quoteSaving: QuoteSaving = RealmService.shared
     lazy var quoteCache: QuoteCaching = CoreDataManager.shared
     lazy var localAuthorizationService = LocalAuthorizationService()
+    lazy var likesStore: LikesStoring = LikesStore.shared
     
     // MARK: - Фабрики ViewModel
     
     func makeFeedViewModel() -> FeedViewModel {
-        FeedViewModel(favoritesStore: favoritesStore, postsService: postsService)
+        FeedViewModel(favoritesStore: favoritesStore, postsService: postsService, likesStore: likesStore)
     }
     
     func makeLoginViewModel() -> LoginViewModel {
