@@ -114,16 +114,3 @@ XCTest.
    ```bash
    sed -i '' 's/objectVersion = 70;/objectVersion = 60;/' Navigation.xcodeproj/project.pbxproj
    ```
-
-## Что не сделано (честно)
-
-- `FavoritesViewModel` выносит только бизнес-логику фильтра — сам
-  `NSFetchedResultsController` и его delegate остаются во
-  `FavoritesViewController` (осознанное решение, см. раздел «Архитектура»).
-- Локализация и тёмная тема покрывают не 100% экранов — легаси-экран
-  деталей поста (`PostViewController`) не был доведён по стилю (адаптивная
-  ширина уже применена, но локализация/тёмная тема/`AppFonts` — нет).
-- `AllQuotesViewModel`/`CategoriesViewModel`/`CategoryQuotesViewModel`
-  дублируют один и тот же паттерн работы с реактивным `Results<T>` из Realm
-  (results/notificationToken/refreshItems) — можно было вынести в общий
-  generic-базовый класс, не стал усложнять ради трёх экранов.
