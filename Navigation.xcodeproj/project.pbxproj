@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,7 +35,6 @@
 		37141C962FE1392900D09402 /* RandomQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37141C952FE1392900D09402 /* RandomQuoteViewController.swift */; };
 		37281BA52FEA852E0025FA8F /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37281BA42FEA852E0025FA8F /* KeychainManager.swift */; };
 		376AEC502F9F5ED700408171 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376AEC4F2F9F5ED700408171 /* SceneDelegate.swift */; };
-		3786A63C2F9F5C23001199E3 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 3786A63B2F9F5C23001199E3 /* iOSIntPackage */; };
 		379694CF2FAB102200218731 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379694CE2FAB102200218731 /* CustomButton.swift */; };
 		37A3FCA12FD0205F008D5841 /* CheckerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A3FCA02FD0205F008D5841 /* CheckerService.swift */; };
 		37A4D14A2FB441A000D4BEC2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A4D1492FB441A000D4BEC2 /* Coordinator.swift */; };
@@ -48,9 +47,7 @@
 		37DB33F72FBC672B00CF70EE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DB33F62FBC672B00CF70EE /* FeedViewController.swift */; };
 		4E7B44169DA9B5DD340B358C /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FC406FAC729B1A4FB9B87F /* LocalNotificationsService.swift */; };
 		7AC344669E66EB9A38B479C2 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E435683A8187F94EBD21E /* CategoriesViewModel.swift */; };
-		85D097636814B180D7EF52D6 /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA50D85B022463B41F6B05BC /* Pods_Navigation.framework */; };
 		86014CFCBE808FE144879E79 /* PostObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C4061B40F8F7FEE8FC9E3 /* PostObject.swift */; };
-		879A3704CA40F6456448E508 /* Pods_NavigationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD31818660578C37A5D5A00 /* Pods_NavigationTests.framework */; };
 		8E6544DCA7495A489C36B0AC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B04453B52C7202D255486F /* User.swift */; };
 		8FBB4721BE3722490875C2A8 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5742C9B5338C2181702A3F /* PostsService.swift */; };
 		96CE45EB92872F827AA54B16 /* StoriesBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B13405395F525E246D0961D /* StoriesBarView.swift */; };
@@ -58,6 +55,11 @@
 		9AC445A59CD55B53456380EF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2241B9B6C466E30D8F0EC2 /* LoginViewModel.swift */; };
 		9B81484BBEE10B8889006830 /* LocalAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D44A438C1230408CFE8C69 /* LocalAuthorizationService.swift */; };
 		9CCD4FB8B7E8062FDC3917EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAF143FA980353A8F3D59350 /* Localizable.strings */; };
+		A1000007A1000007A1000007 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = A1000003A1000003A1000003 /* FirebaseCore */; };
+		A1000008A1000008A1000008 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A1000004A1000004A1000004 /* FirebaseAuth */; };
+		A1000009A1000009A1000009 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A1000005A1000005A1000005 /* FirebaseAnalytics */; };
+		A100000AA100000AA100000A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A1000006A1000006A1000006 /* RealmSwift */; };
+		A3000001A3000001A3000001 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3000001A3000001A3000002 /* AppDependencyContainer.swift */; };
 		AED94356B7E1BB0773BDC0CA /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE42A39C2DDD581AAA8BFC /* ExtensionString.swift */; };
 		B0734968B392D689B2F4489F /* LikesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A48DDAC3885DC094D86B7 /* LikesStore.swift */; };
 		B328441D9A9D7997F832F712 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = F8814A1F9F7BE422DD45A7DB /* Localizable.stringsdict */; };
@@ -137,12 +139,11 @@
 		855545AD9EBE3E5D3D399A8D /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExtensionUIColor.swift; path = Navigation/Library/ExtensionUIColor.swift; sourceTree = SOURCE_ROOT; };
 		984E4BB3B925228040C00EE1 /* ComposePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComposePostViewController.swift; path = Navigation/ComposePostViewController.swift; sourceTree = SOURCE_ROOT; };
 		9D7F44B4AF62D8CDA8C213D1 /* AllQuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllQuotesViewModel.swift; path = Navigation/ViewModels/AllQuotesViewModel.swift; sourceTree = SOURCE_ROOT; };
-		9FD31818660578C37A5D5A00 /* Pods_NavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3000001A3000001A3000002 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		AC5742C9B5338C2181702A3F /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostsService.swift; path = Navigation/Services/PostsService.swift; sourceTree = SOURCE_ROOT; };
 		AE534B8586F30D601178A6A0 /* StoryViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryViewerViewController.swift; path = Navigation/StoryViewerViewController.swift; sourceTree = SOURCE_ROOT; };
 		B9B64F59918D2A5FB8685496 /* AppTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppTypography.swift; path = Navigation/Library/AppTypography.swift; sourceTree = SOURCE_ROOT; };
 		BC634A9C86F5FCB17F71C4C7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Navigation/MapViewController.swift; sourceTree = SOURCE_ROOT; };
-		DA50D85B022463B41F6B05BC /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF143FA980353A8F3D59350 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Navigation/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		DDBE42A39C2DDD581AAA8BFC /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExtensionString.swift; path = Navigation/Library/ExtensionString.swift; sourceTree = SOURCE_ROOT; };
 		E60542B7A7BB6CFDAD7772FC /* CategoryQuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryQuotesViewModel.swift; path = Navigation/ViewModels/CategoryQuotesViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -161,9 +162,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3786A63C2F9F5C23001199E3 /* iOSIntPackage in Frameworks */,
 				37BFC0152FE290C7004636FF /* CoreData.framework in Frameworks */,
-				85D097636814B180D7EF52D6 /* Pods_Navigation.framework in Frameworks */,
+				A1000007A1000007A1000007 /* FirebaseCore in Frameworks */,
+				A1000008A1000008A1000008 /* FirebaseAuth in Frameworks */,
+				A1000009A1000009A1000009 /* FirebaseAnalytics in Frameworks */,
+				A100000AA100000AA100000A /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +174,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				879A3704CA40F6456448E508 /* Pods_NavigationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				37DA3AF93050323A00D8EAAF /* GoogleService-Info.plist */,
+				A3000001A3000001A3000002 /* AppDependencyContainer.swift */,
 				37141C8D2FE1391A00D09402 /* AllQuotesViewController.swift */,
 				37141C8E2FE1391A00D09402 /* APIService.swift */,
 				37141C8F2FE1391A00D09402 /* CategoriesViewController.swift */,
@@ -316,8 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				37BFC0142FE290C7004636FF /* CoreData.framework */,
-				DA50D85B022463B41F6B05BC /* Pods_Navigation.framework */,
-				9FD31818660578C37A5D5A00 /* Pods_NavigationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -351,6 +352,12 @@
 			dependencies = (
 			);
 			name = Navigation;
+			packageProductDependencies = (
+				A1000003A1000003A1000003 /* FirebaseCore */,
+				A1000004A1000004A1000004 /* FirebaseAuth */,
+				A1000005A1000005A1000005 /* FirebaseAnalytics */,
+				A1000006A1000006A1000006 /* RealmSwift */,
+			);
 			productName = Navigation;
 			productReference = 3601A2A428490DDF000D261A /* Navigation.app */;
 			productType = "com.apple.product-type.application";
@@ -383,7 +390,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2660;
-				LastUpgradeCheck = 2650;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					3601A2A328490DDF000D261A = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -405,7 +412,8 @@
 			);
 			mainGroup = 3601A29B28490DDF000D261A;
 			packageReferences = (
-				3786A63A2F9F5C23001199E3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				A1000001A1000001A1000001 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A1000002A1000002A1000002 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 3601A2A528490DDF000D261A /* Products */;
 			projectDirPath = "";
@@ -454,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "";
 			showEnvVarsInLog = 0;
 		};
 		8A353431B0A0F2A713CCD94A /* [CP] Check Pods Manifest.lock */ = {
@@ -476,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "";
 			showEnvVarsInLog = 0;
 		};
 		BCDCEDAC3BF8F64E9644C689 /* [CP] Embed Pods Frameworks */ = {
@@ -485,19 +493,17 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks.sh\"\n";
+			shellScript = "";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -508,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36528E3F284FDF9100965BA4 /* PostTableViewCell.swift in Sources */,
+				A3000001A3000001A3000001 /* AppDependencyContainer.swift in Sources */,
 				3601A2BE28494E4F000D261A /* ProfileViewController.swift in Sources */,
 				3601A2A828490DDF000D261A /* AppDelegate.swift in Sources */,
 				379694CF2FAB102200218731 /* CustomButton.swift in Sources */,
@@ -587,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -650,6 +658,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -705,7 +714,6 @@
 		};
 		3601A2B928490DDF000D261A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4194F2E9C5C2123CBADD1C4B /* Pods-Navigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -720,6 +728,7 @@
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -738,7 +747,6 @@
 		};
 		3601A2BA28490DDF000D261A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D3EEF4896CA2177C6B7CEA1 /* Pods-Navigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -753,6 +761,7 @@
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -771,7 +780,6 @@
 		};
 		37E7C2B7301C7AD90094B0FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 595418A20F8FD925108EAF2D /* Pods-NavigationTests.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -781,7 +789,7 @@
 				DEVELOPMENT_TEAM = JD7856287K;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.NavigationTests;
@@ -799,7 +807,6 @@
 		};
 		37E7C2B8301C7AD90094B0FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BAF72AB1C96194A8F06BD75 /* Pods-NavigationTests.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -809,7 +816,7 @@
 				DEVELOPMENT_TEAM = JD7856287K;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.NavigationTests;
@@ -857,21 +864,44 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3786A63A2F9F5C23001199E3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+		A1000001A1000001A1000001 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
-				branch = imagepublisher;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
+		A1000002A1000002A1000002 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3786A63B2F9F5C23001199E3 /* iOSIntPackage */ = {
+		A1000003A1000003A1000003 /* FirebaseCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3786A63A2F9F5C23001199E3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
-			productName = iOSIntPackage;
+			package = A1000001A1000001A1000001 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		A1000004A1000004A1000004 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1000001A1000001A1000001 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A1000005A1000005A1000005 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1000001A1000001A1000001 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		A1000006A1000006A1000006 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1000002A1000002A1000002 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

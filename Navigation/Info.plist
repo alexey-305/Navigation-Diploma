@@ -2,22 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>ru</string>
 		<string>en</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Приложению нужен доступ к геолокации, чтобы показать ваше местоположение на карте и построить маршрут до выбранной точки.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Приложению нужен доступ к геолокации, чтобы показать ваше местоположение на карте и построить маршрут до выбранной точки.</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>Приложение использует Face ID для быстрого и безопасного входа в аккаунт.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
